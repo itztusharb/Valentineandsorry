@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Drishty ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInPage 1.8s ease forwards;
+}
+
+@keyframes fadeInPage {
+    to { opacity: 1; }
+}
+
+.container {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    text-align: center;
+    transform: translateY(20px);
+    animation: slideUp 1.5s ease forwards;
+}
+
+@keyframes slideUp {
+    to { transform: translateY(0); }
+}
+
+.animated-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff4b5c;
+    animation: glow 2s infinite alternate;
+    margin-bottom: 10px;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #ff9a9e; }
+    to { text-shadow: 0 0 20px #ff4b5c; }
+}
+
+h1 {
+    color: #ff4b5c;
+    font-size: 22px;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+button {
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#yesBtn {
+    background-color: #ff4b5c;
+    color: white;
+}
+
+#noBtn {
+    background-color: #444;
+    color: white;
+}
+
+#response {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff4b5c;
+    display: none;
+}
+
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 22px;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="animated-name">Drishty ❤️</div>
+
+<h1>I'm Sorry</h1>
+
+<p>
+I don’t know if you’re reading this with a smile or with hesitation,
+but I wrote every word with honesty.
+</p>
+
+<p>
+I know I hurt you.
+I know my anger, my words, and my stubbornness caused you pain.
+And I take full responsibility for that.
+</p>
+
+<p>
+Losing you made me realize how deeply you mean to me.
+Not just as my girlfriend —
+but as my comfort, my peace, my happiness,
+my best friend…
+and truly, the love of my life.
+</p>
+
+<p>
+I’m not asking you to forget everything.
+I’m asking for a chance to do better.
+To love you more gently.
+To listen more carefully.
+To fight less and understand more.
+</p>
+
+<p>
+If your heart still has even the smallest space for me…
+will you give us one more chance?
+</p>
+
+<p>
+And if you do…
+will you be my Valentine again? ❤️
+</p>
+
+<div class="buttons">
+    <button id="yesBtn" onclick="celebrate()">Yes ❤️</button>
+    <button id="noBtn" ontouchstart="moveNo()" onclick="moveNo()">No</button>
+</div>
+
+<div id="response">
+You just made me the happiest person alive ❤️
+</div>
+
+</div>
+
+<audio id="romanticMusic" src="music.mp3"></audio>
+
+<script>
+let scale = 1;
+
+function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    noBtn.style.position = "fixed";
+
+    const maxX = window.innerWidth - noBtn.clientWidth;
+    const maxY = window.innerHeight - noBtn.clientHeight;
+
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+
+    scale += 0.15;
+    yesBtn.style.transform = "scale(" + scale + ")";
+}
+
+function celebrate() {
+    document.getElementById("response").style.display = "block";
+    document.getElementById("romanticMusic").play();
+
+    for (let i = 0; i < 120; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 3000);
+    }
+}
+</script>
+
+</body>
+</html>
